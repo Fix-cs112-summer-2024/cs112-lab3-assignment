@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/vtn2/classes/cs112/cs112-assignment-repos/cs112-lab2-assignment'
+g++ --std=c++11 -c -Wall -I. -g functions.cpp main.cpp tests.cpp
+echo "Compilation complete!"
+ 
+g++ -o lab2 -Wall functions*.o main*.o tests*.o main.o
+echo "Linking complete!"
+make: Leaving directory `/Users/vtn2/classes/cs112/cs112-assignment-repos/cs112-lab2-assignment'
+ 
