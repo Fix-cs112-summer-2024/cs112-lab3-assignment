@@ -2,7 +2,7 @@
 TARGET = lab3
 TEST_TARGET = tester
 # .cpp files that do not contain a main() function.
-SOURCES = functions.cpp
+SOURCES = Student.cpp
 
 CPP       = g++ --std=c++11 -c
 CPPFLAGS   = -Wall -I. -g
@@ -15,7 +15,7 @@ rm       = rm -f
 
 .PHONY: obj clean all
 
-all: $(TARGET) $(TEST_TARGET)
+all: $(TEST_TARGET)
 
 $(TARGET): obj main.o
 	$(LINKER) $(TARGET) $(LFLAGS) $(OBJECTS) main.o
