@@ -1,9 +1,9 @@
 make --dry-run --keep-going --print-directory
-make: Entering directory `/Users/vtn2/classes/cs112/cs112-assignment-repos/cs112-lab2-assignment'
-g++ --std=c++11 -c -Wall -I. -g functions.cpp main.cpp tests.cpp
-echo "Compilation complete!"
+make: Entering directory `/Users/vtn2/classes/cs112/cs112-assignment-repos/cs112-lab3-assignment'
  
-g++ -o lab2 -Wall functions*.o main*.o tests*.o main.o
-echo "Linking complete!"
-make: Leaving directory `/Users/vtn2/classes/cs112/cs112-assignment-repos/cs112-lab2-assignment'
+make: *** No rule to make target `functions.cpp', needed by `obj'.
+
+c++  -Wall -I. -g  -c -o main.o main.cpp
+c++  -Wall -I. -g  -c -o tests.o tests.cpp
+make: Leaving directory `/Users/vtn2/classes/cs112/cs112-assignment-repos/cs112-lab3-assignment'
  

@@ -1,5 +1,5 @@
 # assignment name (generate executable with this name)
-TARGET = lab2
+TARGET = lab3
 TEST_TARGET = tester
 # .cpp files that do not contain a main() function.
 SOURCES = functions.cpp
