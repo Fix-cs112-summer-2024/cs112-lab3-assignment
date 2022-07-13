@@ -4,6 +4,6 @@
 class Fraction {
 public:
     Fraction();
-}
+};
 
 #endif
