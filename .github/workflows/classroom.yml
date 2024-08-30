@@ -1,0 +1,39 @@
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Student class tests
+      id: student-class-tests
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Student class tests
+        setup-command: make
+        command: ./tester "Student class"
+        timeout: 4
+    - name: Fraction class tests
+      id: fraction-class-tests
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Fraction class tests
+        setup-command: make
+        command: ./tester "Fraction class"
+        timeout: 4
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        STUDENT-CLASS-TESTS_RESULTS: "${{steps.student-class-tests.outputs.result}}"
+        FRACTION-CLASS-TESTS_RESULTS: "${{steps.fraction-class-tests.outputs.result}}"
+      with:
+        runners: student-class-tests,fraction-class-tests
+
